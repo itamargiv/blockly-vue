@@ -13,7 +13,8 @@ export default {
     toolboxHref: {
       type: String,
       required: true
-    }
+    },
+    options: Object
   },
   data() {
     return {
@@ -22,7 +23,10 @@ export default {
   },
   async mounted() {
     const toolbox = await fetch(this.toolboxHref).then(res => res.text());
-    this.workspace = Blockly.inject(this.$refs.area, { toolbox });
+    this.workspace = Blockly.inject(this.$refs.area, {
+      ...this.options,
+      toolbox
+    });
 
     window.addEventListener("resize", this.resizeBlockly, false);
 

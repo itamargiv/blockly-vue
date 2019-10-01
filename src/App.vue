@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
-    <Blockly id="blockly-editor" toolbox-href="/toolbox.xml" />
+    <Blockly id="blockly-editor" toolbox-href="/toolbox.xml" :options="{scrollbars: false}" />
   </div>
 </template>
 

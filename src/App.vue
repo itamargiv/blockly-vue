@@ -1,7 +1,18 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
-    <Blockly id="blockly-editor" toolbox-href="/toolbox.xml" :options="{scrollbars: false}" />
+    <Blockly
+      id="blockly-editor"
+      toolbox-href="/toolbox.xml"
+      :options="{
+      scrollbars: false,
+      grid: {
+        spacing: 30,
+        length: 2,
+        snap: true
+      }
+      }"
+    />
   </div>
 </template>
 

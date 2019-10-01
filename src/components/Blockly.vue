@@ -1,9 +1,6 @@
 <template>
   <div class="blockly-editor">
     <div class="blockly-area" ref="area"></div>
-    <xml class="blockly-toolbox" ref="toolbox" style="display:none">
-      <slot></slot>
-    </xml>
   </div>
 </template>
 
@@ -12,15 +9,32 @@ import Blockly from "blockly";
 
 export default {
   name: "Blockly",
+  props: {
+    toolboxHref: {
+      type: String,
+      required: true
+    }
+  },
   data() {
     return {
       workspace: null
     };
   },
-  mounted() {
-    this.workspace = Blockly.inject(this.$refs.area, {
-      toolbox: this.$refs.toolbox
-    });
+  async mounted() {
+    const toolbox = await fetch(this.toolboxHref).then(res => res.text());
+    this.workspace = Blockly.inject(this.$refs.area, { toolbox });
+
+    window.addEventListener("resize", this.resizeBlockly, false);
+
+    this.resizeBlockly();
+  },
+  destroyed() {
+    window.removeEventListener("resize", this.resizeBlockly, false);
+  },
+  methods: {
+    resizeBlockly: function() {
+      Blockly.svgResize(this.workspace);
+    }
   }
 };
 </script>

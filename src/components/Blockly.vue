@@ -1,6 +1,6 @@
 <template>
   <div class="blockly-editor">
-    <div class="blockly-area" ref="area" :style="boxStyle"></div>
+    <div class="blockly-area" ref="area"></div>
     <xml class="blockly-toolbox" ref="toolbox" style="display:none">
       <slot></slot>
     </xml>
@@ -14,8 +14,7 @@ export default {
   name: "Blockly",
   data() {
     return {
-      workspace: null,
-      boxStyle: null
+      workspace: null
     };
   },
   mounted() {
@@ -30,6 +29,7 @@ export default {
 <style scoped>
 .blockly-editor {
   position: relative;
+  min-height: 300px;
 }
 
 .blockly-area {

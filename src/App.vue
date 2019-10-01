@@ -5,13 +5,14 @@
       id="blockly-editor"
       toolbox-href="/toolbox.xml"
       :options="{
-      scrollbars: false,
-      grid: {
-        spacing: 30,
-        length: 2,
-        snap: true
-      }
+        scrollbars: false,
+        grid: {
+          spacing: 30,
+          length: 2,
+          snap: true
+        }
       }"
+      v-on:blockly-change="onChange"
     />
   </div>
 </template>
@@ -23,6 +24,11 @@ export default {
   name: "app",
   components: {
     Blockly
+  },
+  methods: {
+    onChange: function(event, workspace) {
+      console.log(event.type, workspace);
+    }
   }
 };
 </script>

@@ -28,8 +28,11 @@ export default {
       toolbox
     });
 
-    window.addEventListener("resize", this.resizeBlockly, false);
+    this.workspace.addChangeListener(event => {
+      this.$emit("blockly-change", event, this.workspace, Blockly);
+    });
 
+    window.addEventListener("resize", this.resizeBlockly, false);
     this.resizeBlockly();
   },
   destroyed() {

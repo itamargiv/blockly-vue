@@ -1,10 +1,11 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
-    <Blockly
-      id="blockly-editor"
-      toolbox-href="/toolbox.xml"
-      :options="{
+    <div class="container">
+      <Blockly
+        id="blockly-editor"
+        toolbox-href="/toolbox.xml"
+        :options="{
         scrollbars: false,
         grid: {
           spacing: 30,
@@ -12,8 +13,10 @@
           snap: true
         }
       }"
-      v-on:blockly-change="onChange"
-    />
+        v-on:blockly-change="onChange"
+      />
+      <textarea ref="output" readonly></textarea>
+    </div>
   </div>
 </template>
 
@@ -26,8 +29,8 @@ export default {
     Blockly
   },
   methods: {
-    onChange: function(event, workspace) {
-      console.log(event.type, workspace);
+    onChange: function(event, workspace, Blockly) {
+      this.$refs.output.value = Blockly.JavaScript.workspaceToCode(workspace);
     }
   }
 };
@@ -45,5 +48,15 @@ export default {
 
 #blockly-editor {
   height: 600px;
+  width: 70%;
+}
+
+.container {
+  display: flex;
+}
+
+.container textarea {
+  width: 30%;
+  resize: none;
 }
 </style>

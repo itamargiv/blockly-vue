@@ -61,3 +61,58 @@ export default {
   height: 100%;
 }
 </style>
+
+<docs>
+### Features
+
+- Fully Responsive
+- Loads External toolbox configuration
+- Exposes change event handler
+- Implements Blockly options
+
+### Examples
+
+#### Basic Usage
+
+```js
+<Blockly toolbox-href="simple-toolbox.xml" />
+```
+
+#### Custom Height
+
+```js
+<Blockly toolbox-href="example-toolbox.xml" :style="{ height: '600px' }"/>
+```
+
+#### Handle Events
+
+```js
+function printCode(event, workspace, Blockly){
+    const code = Blockly.JavaScript.workspaceToCode(workspace);
+
+    document.getElementById('blockly-output').innerText = code;
+}
+
+<Blockly toolbox-href="simple-toolbox.xml" v-on:blockly-change="printCode"/>
+
+<pre id="blockly-output" :style="{ 
+  minHeight: '300px',
+  padding: '1rem', 
+  background: '#451f47',  
+  color: '#fdfff0'}"></pre>
+```
+
+#### Complex Toolbox with Options
+
+```js
+<Blockly toolbox-href="/toolbox.xml"
+  :options="{
+    scrollbars: false,
+    grid: {
+      spacing: 30,
+      length: 2,
+      snap: true
+    }
+  }" />
+```
+</docs>

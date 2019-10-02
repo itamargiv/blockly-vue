@@ -7,6 +7,9 @@
 <script>
 import Blockly from "blockly";
 
+/**
+ * A vue warapper for Blockly by Google - A visual block based code editor.
+ */
 export default {
   name: "Blockly",
   props: {

@@ -40,7 +40,20 @@ export default {
       toolbox
     });
 
-    this.workspace.addChangeListener(event => {
+    this.workspace.addChangeListener(this.emitChange);
+
+    window.addEventListener("resize", this.resizeBlockly, false);
+    this.resizeBlockly();
+  },
+  destroyed() {
+    this.workspace.removeChangeListener(this.emitChange);
+    window.removeEventListener("resize", this.resizeBlockly, false);
+  },
+  methods: {
+    resizeBlockly: function() {
+      Blockly.svgResize(this.workspace);
+    },
+    emitChange: function(event) {
       /**
        * Triggeres whenever the Blockly workspace changes
        *
@@ -51,17 +64,6 @@ export default {
        * @property {object} Blockly The exposed Blockly namespace
        */
       this.$emit("blockly-change", event, this.workspace, Blockly);
-    });
-
-    window.addEventListener("resize", this.resizeBlockly, false);
-    this.resizeBlockly();
-  },
-  destroyed() {
-    window.removeEventListener("resize", this.resizeBlockly, false);
-  },
-  methods: {
-    resizeBlockly: function() {
-      Blockly.svgResize(this.workspace);
     }
   }
 };

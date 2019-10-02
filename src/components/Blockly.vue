@@ -10,10 +10,19 @@ import Blockly from "blockly";
 export default {
   name: "Blockly",
   props: {
+    /**
+     * URL to load toolbox configurations from. Must be a valid toolbox XML.
+     * @see See [Blockly docs](https://developers.google.com/blockly/guides/configure/web/toolbox).
+     */
     toolboxHref: {
       type: String,
       required: true
     },
+    /**
+     * Blockly configuration options.
+     *
+     * @see See [Blockly docs](https://developers.google.com/blockly/guides/get-started/web#configuration).
+     */
     options: Object
   },
   data() {
@@ -29,6 +38,15 @@ export default {
     });
 
     this.workspace.addChangeListener(event => {
+      /**
+       * Triggeres whenever the Blockly workspace changes
+       *
+       * @type {object}
+       *
+       * @property {object} event The blockly event |||
+       * @property {object} workspace The current active workspace |||
+       * @property {object} Blockly The exposed Blockly namespace
+       */
       this.$emit("blockly-change", event, this.workspace, Blockly);
     });
 

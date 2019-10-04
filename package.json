@@ -26,6 +26,7 @@
     "babel-jest": "^23.6.0",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+    "fetch-mock": "^7.4.0",
     "vue-cli-plugin-styleguidist": "^3.24.2",
     "vue-template-compiler": "^2.6.10"
   },

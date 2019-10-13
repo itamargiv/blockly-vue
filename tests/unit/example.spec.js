@@ -1,12 +1,10 @@
-import { shallowMount } from '@vue/test-utils'
-import HelloWorld from '@/components/HelloWorld.vue'
+import { shallowMount } from '@vue/test-utils';
+import Blockly from '@/components/Blockly.vue';
 
-describe('HelloWorld.vue', () => {
-  it('renders props.msg when passed', () => {
-    const msg = 'new message'
-    const wrapper = shallowMount(HelloWorld, {
-      propsData: { msg }
-    })
-    expect(wrapper.text()).toMatch(msg)
-  })
-})
+describe('Blockly.vue', () => {
+  it('renders a Blockly workspace');
+  it('accepts and fetches a toolbox url');
+  it('accepts and applies a toolbox');
+  it('accepts and applies options');
+  it('emits change events');
+});

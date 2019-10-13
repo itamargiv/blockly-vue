@@ -55,7 +55,7 @@ export default {
     },
     emitChange: function(event) {
       /**
-       * Triggeres whenever the Blockly workspace changes
+       * Triggers whenever the Blockly workspace changes
        *
        * @type {object}
        *

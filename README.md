@@ -1,5 +1,7 @@
 # blockly-vue
 
+A vue wrapper for Google's blockly
+
 ## Project setup
 ```
 yarn install

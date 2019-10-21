@@ -1,5 +1,5 @@
 {
-  "name": "blockly-vue",
+  "name": "@itamar.givon/blockly-vue",
   "version": "0.0.1",
   "main": "dist/my-component.umd.js",
   "unpkg": "dist/my-component.min.umd.js",
@@ -11,6 +11,10 @@
     "styleguide": "vue-cli-service styleguidist",
     "styleguide:build": "vue-cli-service styleguidist:build",
     "test:unit": "vue-cli-service test:unit"
+  },
+  "repository": "github:itamargiv/blockly-vue",
+  "peerDependencies": {
+    "vue": "^2.6.10"
   },
   "dependencies": {
     "blockly": "^2.20190722.1",

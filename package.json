@@ -1,10 +1,12 @@
 {
   "name": "blockly-vue",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.0.1",
+  "main": "dist/my-component.umd.js",
+  "unpkg": "dist/my-component.min.umd.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build:lib": "vue-cli-service build --target lib --name blockly-vue src/components/Blockly.vue",
     "lint": "vue-cli-service lint",
     "styleguide": "vue-cli-service styleguidist",
     "styleguide:build": "vue-cli-service styleguidist:build",

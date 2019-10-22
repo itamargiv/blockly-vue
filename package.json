@@ -5,6 +5,7 @@
   "unpkg": "dist/blockly-vue.min.umd.js",
   "scripts": {
     "serve": "vue-cli-service serve",
+    "test": "yarn test:unit",
     "build": "vue-cli-service build",
     "build:lib": "vue-cli-service build --target lib --name blockly-vue src/components/Blockly.vue",
     "lint": "vue-cli-service lint",

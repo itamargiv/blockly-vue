@@ -2,7 +2,9 @@
   "name": "@itamar.givon/blockly-vue",
   "version": "0.0.2",
   "main": "dist/blockly-vue.umd.js",
-  "unpkg": "dist/blockly-vue.min.umd.js",
+  "unpkg": "dist/blockly-vue.umd.min.js",
+  "author": "Itamar Givon <itamar.givon.dev@gmail.com>",
+  "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
     "test": "yarn test:unit",
@@ -11,7 +13,10 @@
     "lint": "vue-cli-service lint",
     "styleguide": "vue-cli-service styleguidist",
     "styleguide:build": "vue-cli-service styleguidist:build",
-    "test:unit": "vue-cli-service test:unit"
+    "test:unit": "vue-cli-service test:unit",
+    "prerelease": "np prerelease --tag=alpha",
+    "release": "np",
+    "beta": "np --tag=beta"
   },
   "repository": "github:itamargiv/blockly-vue",
   "peerDependencies": {

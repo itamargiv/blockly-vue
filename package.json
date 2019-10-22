@@ -1,6 +1,6 @@
 {
   "name": "@itamar.givon/blockly-vue",
-  "version": "0.0.2",
+  "version": "0.0.3-0",
   "main": "dist/blockly-vue.umd.js",
   "unpkg": "dist/blockly-vue.umd.min.js",
   "author": "Itamar Givon <itamar.givon.dev@gmail.com>",
